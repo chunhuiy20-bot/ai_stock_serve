@@ -1,0 +1,260 @@
+﻿:root {
+  --bg0: #0f1724;
+  --bg1: #182538;
+  --panel: rgba(10, 16, 26, 0.94);
+  --panel-2: rgba(18, 28, 42, 0.88);
+  --text: #dbe8ff;
+  --muted: #8fa7c8;
+  --accent: #50e3c2;
+  --border: rgba(80, 227, 194, 0.18);
+  --shell-border: rgba(148, 163, 184, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+  background:
+    radial-gradient(circle at top left, rgba(80, 227, 194, 0.12), transparent 28%),
+    radial-gradient(circle at top right, rgba(96, 165, 250, 0.16), transparent 30%),
+    linear-gradient(180deg, #142033 0%, var(--bg0) 100%);
+  font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+  color: var(--text);
+}
+
+body {
+  padding: 10px;
+  overflow: hidden;
+}
+
+.app-layout {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 10px;
+  height: calc(100vh - 12px);
+}
+
+.hud,
+#status {
+  display: none;
+}
+
+.control-shell,
+.map-shell {
+  min-width: 0;
+  border-radius: 18px;
+  border: 1px solid var(--shell-border);
+  background: linear-gradient(180deg, rgba(7, 13, 23, 0.86), rgba(12, 20, 32, 0.92));
+  box-shadow: 0 20px 65px rgba(0, 0, 0, 0.24);
+}
+
+.control-shell {
+  padding: 10px 12px 12px;
+}
+
+.map-shell {
+  padding: 10px;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 8px;
+  min-height: 1200px;
+}
+
+.shell-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.map-header {
+  margin-bottom: 0;
+}
+
+.shell-kicker {
+  margin: 0 0 2px;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.shell-header h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #eef7ff;
+}
+
+.shell-note {
+  margin: 0;
+  font-size: 11px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.control-panel {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+  gap: 8px;
+}
+
+.panel-section {
+  min-width: 0;
+  padding: 8px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.08);
+  background: linear-gradient(180deg, var(--panel), var(--panel-2));
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px 8px;
+  align-items: center;
+}
+
+.panel-section h3 {
+  grid-column: 1 / -1;
+  margin: 0 0 1px;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #eef7ff;
+}
+
+.control-panel label {
+  font-size: 10px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.field-row {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.field-cell {
+  min-width: 0;
+  display: grid;
+  gap: 4px;
+}
+
+#goBtn,
+#poiSelect,
+#poiBtn {
+  grid-column: span 2;
+}
+
+.control-panel input,
+.control-panel select,
+.control-panel button {
+  width: 100%;
+  min-height: 30px;
+  border-radius: 9px;
+  border: 1px solid rgba(130, 155, 200, 0.18);
+  background: rgba(9, 14, 23, 0.92);
+  color: var(--text);
+  padding: 5px 9px;
+  font-size: 11px;
+}
+
+.control-panel input:focus,
+.control-panel select:focus {
+  outline: none;
+  border-color: rgba(80, 227, 194, 0.48);
+  box-shadow: 0 0 0 3px rgba(80, 227, 194, 0.08);
+}
+
+.control-panel button {
+  cursor: pointer;
+  border-color: rgba(80, 227, 194, 0.28);
+  background: linear-gradient(180deg, rgba(23, 50, 58, 0.98), rgba(11, 23, 29, 0.96));
+  font-weight: 600;
+}
+
+.control-panel button:hover {
+  border-color: rgba(80, 227, 194, 0.52);
+  background: linear-gradient(180deg, rgba(28, 65, 73, 0.98), rgba(13, 29, 35, 0.96));
+}
+
+#game {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  border-radius: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  background: #050816;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 24px 72px rgba(0, 0, 0, 0.35);
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  display: block;
+}
+
+@media (max-width: 980px) {
+  body {
+    overflow: auto;
+  }
+
+  .app-layout {
+    height: auto;
+  }
+
+  .shell-header {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .shell-note {
+    white-space: normal;
+  }
+
+  .control-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .map-shell {
+    min-height: 980px;
+  }
+}
+
+@media (max-width: 720px) {
+  body {
+    padding: 10px;
+  }
+
+  .app-layout {
+    gap: 10px;
+  }
+
+  .control-shell,
+  .map-shell {
+    padding: 10px;
+    border-radius: 16px;
+  }
+
+  .panel-section {
+    grid-template-columns: 1fr;
+  }
+
+  #goBtn,
+  #poiSelect,
+  #poiBtn {
+    grid-column: auto;
+  }
+
+  .field-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .map-shell {
+    min-height: 680px;
+  }
+}
+
+

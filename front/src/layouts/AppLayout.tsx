@@ -1,11 +1,12 @@
+﻿import { Zap } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
-import { Zap } from 'lucide-react';
 
 export function AppLayout({ children }: { children: React.ReactNode }) {
   const { pathname } = useLocation();
 
   const isListActive = pathname === '/' || pathname.startsWith('/sector/') || pathname.startsWith('/stock/');
   const isArenaActive = pathname === '/arena';
+  const isGameActive = pathname === '/game';
   const isStrategiesActive = pathname === '/strategies' || pathname.startsWith('/strategy/');
 
   const navLink = (to: string, label: string, active: boolean) => (
@@ -33,6 +34,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
           <nav className="hidden md:flex gap-8 text-sm font-medium text-gray-400 h-16 items-center">
             {navLink('/', '自选看板', isListActive)}
             {navLink('/arena', 'AI 竞技场', isArenaActive)}
+            {navLink('/game', '地图指挥台', isGameActive)}
             {navLink('/strategies', '策略中心', isStrategiesActive)}
           </nav>
         </div>

@@ -1,0 +1,85 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pixel Map Canvas2D</title>
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body>
+    <div class="hud">
+      <div id="status">Loading map...</div>
+    </div>
+
+    <div class="app-layout">
+      <section class="control-shell">
+        <div class="shell-header">
+          <div>
+            <p class="shell-kicker">Control Deck</p>
+            <h2>操作控制板</h2>
+          </div>
+          <p class="shell-note">角色跟踪、地图查看与目标下发分区显示</p>
+        </div>
+
+        <aside class="control-panel">
+          <section class="panel-section">
+            <h3>View / Track</h3>
+
+            <label for="roleSelect">Track Actor</label>
+            <select id="roleSelect"></select>
+
+            <label for="viewMapSelect">View Map</label>
+            <select id="viewMapSelect">
+              <option value="./map/map.tmj">Floor 1</option>
+              <option value="./map/map2.tmj">Floor 2</option>
+              <option value="./map/world_map.tmj">World Map</option>
+            </select>
+          </section>
+
+          <section class="panel-section">
+            <h3>Command</h3>
+
+            <label for="commandRoleSelect">Command Actor</label>
+            <select id="commandRoleSelect"></select>
+
+            <label for="targetFloor">Target Map</label>
+            <select id="targetFloor">
+              <option value="./map/map.tmj">Floor 1</option>
+              <option value="./map/map2.tmj">Floor 2</option>
+              <option value="./map/world_map.tmj">World Map</option>
+            </select>
+
+            <div class="field-row">
+              <div class="field-cell">
+                <label for="tileX">Tile X</label>
+                <input id="tileX" type="number" min="0" step="1" />
+              </div>
+              <div class="field-cell">
+                <label for="tileY">Tile Y</label>
+                <input id="tileY" type="number" min="0" step="1" />
+              </div>
+            </div>
+
+            <button id="goBtn" type="button">Move To Tile</button>
+
+            <label for="poiSelect">POI</label>
+            <select id="poiSelect"></select>
+            <button id="poiBtn" type="button">Move To POI</button>
+          </section>
+        </aside>
+      </section>
+
+      <section class="map-shell">
+        <div class="shell-header map-header">
+          <div>
+            <p class="shell-kicker">Map Stage</p>
+            <h2>地图舞台</h2>
+          </div>
+          <p class="shell-note">地图显示与角色路径保持独立区域</p>
+        </div>
+        <canvas id="game"></canvas>
+      </section>
+    </div>
+    <script type="module" src="./src/main.js?v=positions-sync-1"></script>
+  </body>
+</html>

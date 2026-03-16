@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --primary: #6366f1;
   --primary-dark: #4f46e5;
   --primary-light: #818cf8;
@@ -1160,3 +1160,17 @@ body {
     transform: translate(-50%, -50%);
   }
 }
+
+.game-shell-frame {
+  display: block;
+  width: 100%;
+  min-height: 1360px;
+  border: 0;
+  background: #050816;
+}
+
+
+
+
+
+
