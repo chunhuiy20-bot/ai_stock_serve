@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>World News Globe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Global Intelligence Desk</p>
+        <h1>全球实时资讯</h1>
+      </div>
+    </header>
+
+    <main class="dashboard">
+      <section class="globe-panel">
+        <div class="panel-header">
+          <div>
+            <p class="section-label">Interactive Globe</p>
+          </div>
+        </div>
+
+        <div class="globe-stage">
+          <div class="globe-core">
+            <div class="orbital-ring orbital-ring-a"></div>
+            <div class="orbital-ring orbital-ring-b"></div>
+            <div class="globe-wrapper">
+              <svg id="globeSvg" class="globe-map" viewBox="0 0 1000 1000" aria-label="真实世界地图地球"></svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="news-panel">
+        <div class="panel-header">
+          <div>
+            <p class="section-label">Country Feed</p>
+            <div class="title-row">
+              <h2 id="countryName">Global Overview</h2>
+              <button id="resetOverview" class="secondary-button" type="button">返回全球</button>
+            </div>
+          </div>
+          <span id="newsCount" class="count-badge">4 条资讯</span>
+        </div>
+
+        <section class="country-summary">
+          <p class="summary-label">国家概览</p>
+          <p id="countrySummary"></p>
+        </section>
+
+        <section class="country-tags" id="countryTags"></section>
+
+        <section class="news-list-section">
+          <div class="news-list-header">
+            <h3>最新资讯</h3>
+            <p>当前为示例数据，可继续替换为真实新闻 API</p>
+          </div>
+          <div id="newsList" class="news-list"></div>
+        </section>
+      </aside>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

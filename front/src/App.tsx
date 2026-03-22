@@ -8,6 +8,7 @@ import { SectorDetailPage } from './pages/SectorDetail/SectorDetailPage';
 import { StockDetailPage } from './pages/StockDetail/StockDetailPage';
 import { ArenaPage } from './pages/Arena/ArenaPage';
 import { GamePage } from './pages/Game/GamePage';
+import { GlobalNewsPage } from './pages/GlobalNews/GlobalNewsPage';
 import './App.css';
 
 export default function App() {
@@ -18,6 +19,7 @@ export default function App() {
           <Route path="/"               element={<WatchlistPage />} />
           <Route path="/arena"          element={<ArenaPage />} />
           <Route path="/game"           element={<GamePage />} />
+          <Route path="/global-news"    element={<GlobalNewsPage />} />
           <Route path="/strategies"     element={<StrategiesPage />} />
           <Route path="/strategy/:id"   element={<StrategyDetailPage />} />
           <Route path="/sector/:id"     element={<SectorDetailPage />} />

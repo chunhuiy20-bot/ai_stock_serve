@@ -1174,3 +1174,11 @@ body {
 
 
 
+
+.global-news-frame {
+  display: block;
+  width: 100%;
+  min-height: 980px;
+  border: 0;
+  background: #050816;
+}

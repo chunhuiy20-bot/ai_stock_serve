@@ -7,6 +7,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
   const isListActive = pathname === '/' || pathname.startsWith('/sector/') || pathname.startsWith('/stock/');
   const isArenaActive = pathname === '/arena';
   const isGameActive = pathname === '/game';
+  const isGlobalNewsActive = pathname === '/global-news';
   const isStrategiesActive = pathname === '/strategies' || pathname.startsWith('/strategy/');
 
   const navLink = (to: string, label: string, active: boolean) => (
@@ -35,6 +36,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
             {navLink('/', '自选看板', isListActive)}
             {navLink('/arena', 'AI 竞技场', isArenaActive)}
             {navLink('/game', '地图指挥台', isGameActive)}
+            {navLink('/global-news', '全球资讯', isGlobalNewsActive)}
             {navLink('/strategies', '策略中心', isStrategiesActive)}
           </nav>
         </div>
